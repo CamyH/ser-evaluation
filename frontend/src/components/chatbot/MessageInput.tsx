@@ -14,7 +14,8 @@ export const MessageInput = () => {
                         aria-label='Submit'
                         type='submit'
                         size='icon-xs'
-                        onClick={() => setIsSent(!isSent)}>{
+                        onClick={() => setIsSent(!isSent)}
+                        disabled={isSent}>{
                         <SendHorizontal type='submit'/>
                     }
                     </InputGroupButton>
