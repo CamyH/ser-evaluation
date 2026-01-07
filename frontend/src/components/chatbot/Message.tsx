@@ -1,8 +1,7 @@
 import {Item, ItemContent} from "@/components/ui/item.tsx";
+import type {BaseMessage} from "@/components/chatbot/types/message.type.ts";
 
-type MessagePropType = {
-    content: string
-}
+type MessagePropType = BaseMessage
 
 export const Message = ({content}: MessagePropType) => {
     return (
