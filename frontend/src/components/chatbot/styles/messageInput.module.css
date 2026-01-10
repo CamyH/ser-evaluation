@@ -1,6 +1,6 @@
 .inputContainer {
     display: flex;
-    width: 45%;
+    margin: 30px 20px 20px 20px;
 }
 
 .sendButton {
