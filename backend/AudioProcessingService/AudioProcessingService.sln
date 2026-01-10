@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioProcessingService", "AudioProcessingService.csproj", "{9B35E295-EC03-4293-970B-F768C76D20B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0691293F-EA4F-4321-8795-076B67E8FC9F}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B35E295-EC03-4293-970B-F768C76D20B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B35E295-EC03-4293-970B-F768C76D20B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B35E295-EC03-4293-970B-F768C76D20B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B35E295-EC03-4293-970B-F768C76D20B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
