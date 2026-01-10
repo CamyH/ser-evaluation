@@ -15,4 +15,11 @@
       <Content Remove="appsettings.Development.json" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Interfaces\" />
+      <Folder Include="Models\" />
+      <Folder Include="Pipeline\" />
+      <Folder Include="Services\" />
+    </ItemGroup>
+
 </Project>
