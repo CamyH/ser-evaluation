@@ -4,4 +4,5 @@ export type BaseMessage = {
 
 export type Message = BaseMessage & {
     userId: string
+    type: 'USER' | 'SYSTEM'
 }
