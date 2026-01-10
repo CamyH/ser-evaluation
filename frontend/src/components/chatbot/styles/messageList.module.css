@@ -1,6 +1,20 @@
-.messageContainer {
-    display: flex;
-    flex-direction: column;
+.messageList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     margin: 20px;
     gap: 10px;
 }
+
+.messageList > [data-slot='item']:nth-child(even) {
+    background-color: red;
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.messageList > [data-slot='item']:nth-child(odd) {
+    background-color: blue;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
