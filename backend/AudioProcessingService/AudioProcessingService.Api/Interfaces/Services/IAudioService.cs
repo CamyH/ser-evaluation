@@ -7,5 +7,5 @@ public interface IAudioService
     /// <summary>
     /// Normalize Audio using pre-processing steps:
     /// </summary>
-    AudioData ProcessAudioAsync();
+    AudioData ProcessAudioAsync(Stream audioStream);
 }
