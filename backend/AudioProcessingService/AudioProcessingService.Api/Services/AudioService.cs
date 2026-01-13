@@ -1,15 +1,27 @@
+using AudioProcessingService.Api.Extensions;
+using AudioProcessingService.Api.Interfaces.Pipeline;
 using AudioProcessingService.Api.Interfaces.Services;
 using AudioProcessingService.Models;
 using NAudio.Wave;
 
-namespace AudioProcessingService.Services;
+namespace AudioProcessingService.Api.Services;
 
-public class AudioService : IAudioService
+public class AudioService(IFormatNormalizer formatNormalizer, IVolumeNormalizer volumeNormalizer) : IAudioService
 {
     /// <inheritdoc />
-    public AudioData ProcessAudioAsync(Stream audioStream)
+    public MemoryStream ProcessAudio(MemoryStream audioStream)
     {
-        throw new NotImplementedException();
+        using var reader = new WaveFileReader(audioStream);
+        ISampleProvider sampleProviderInput = reader.ToSampleProvider();
+        
+        var normalizedFormat = formatNormalizer.Normalize(sampleProviderInput, 44100);
+        var normalizedVolume = volumeNormalizer.Normalize(normalizedFormat);
+        
+        var outputStream = new MemoryStream();
+        outputStream.WriteFileToStream(normalizedVolume);
+        outputStream.Position = 0;
+
+        return outputStream;
     }
     
     
