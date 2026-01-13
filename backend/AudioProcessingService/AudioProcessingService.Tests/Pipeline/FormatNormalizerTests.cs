@@ -6,7 +6,7 @@ using Xunit;
 namespace AudioProcessingService.Tests.Pipeline;
 
 [TestSubject(typeof(FormatNormalizer))]
-public class FormatNormalizerTest
+public class FormatNormalizerTests
 {
         [Fact]
         public void Normalize_StereoToMono_ConvertsToMono()
