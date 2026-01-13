@@ -1,7 +1,7 @@
 using AudioProcessingService.Models;
 using NAudio.Wave;
 
-namespace AudioProcessingService.Interfaces.Pipeline;
+namespace AudioProcessingService.Api.Interfaces.Pipeline;
 
 public interface IFormatNormalizer
 {

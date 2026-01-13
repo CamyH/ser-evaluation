@@ -1,9 +1,8 @@
-using AudioProcessingService.Interfaces.Pipeline;
-using AudioProcessingService.Models;
+using AudioProcessingService.Api.Interfaces.Pipeline;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
-namespace AudioProcessingService.Pipeline;
+namespace AudioProcessingService.Api.Pipeline;
 
 public class FormatNormalizer : IFormatNormalizer
 {
