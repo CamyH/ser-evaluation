@@ -1,4 +1,4 @@
-using AudioProcessingService.Extensions;
+using AudioProcessingService.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,4 +1,4 @@
-using AudioProcessingService.Interfaces.Services;
+using AudioProcessingService.Api.Interfaces.Services;
 using AudioProcessingService.Models;
 using NAudio.Wave;
 

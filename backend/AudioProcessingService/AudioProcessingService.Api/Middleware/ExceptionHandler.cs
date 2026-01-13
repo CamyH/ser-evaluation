@@ -1,8 +1,8 @@
-using AudioProcessingService.Exceptions;
+using AudioProcessingService.Api.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AudioProcessingService.Middleware;
+namespace AudioProcessingService.Api.Middleware;
 
 public class ExceptionHandler(ILogger<ExceptionHandler> logger) : IExceptionHandler
 {

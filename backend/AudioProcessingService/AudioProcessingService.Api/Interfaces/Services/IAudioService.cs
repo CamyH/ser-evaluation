@@ -1,6 +1,6 @@
 using AudioProcessingService.Models;
 
-namespace AudioProcessingService.Interfaces.Services;
+namespace AudioProcessingService.Api.Interfaces.Services;
 
 public interface IAudioService
 {

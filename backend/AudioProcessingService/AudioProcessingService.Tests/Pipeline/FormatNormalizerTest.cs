@@ -1,4 +1,4 @@
-using AudioProcessingService.Pipeline;
+using AudioProcessingService.Api.Pipeline;
 using JetBrains.Annotations;
 using NAudio.Wave.SampleProviders;
 using Xunit;

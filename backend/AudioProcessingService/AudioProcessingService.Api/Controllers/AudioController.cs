@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace AudioProcessingService.Controllers;
+namespace AudioProcessingService.Api.Controllers;
 
 [ApiController]
 [Route("api/v1/[controller]")]

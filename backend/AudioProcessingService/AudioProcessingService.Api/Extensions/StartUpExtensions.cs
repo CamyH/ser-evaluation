@@ -1,6 +1,6 @@
-using AudioProcessingService.Middleware;
+using AudioProcessingService.Api.Middleware;
 
-namespace AudioProcessingService.Extensions;
+namespace AudioProcessingService.Api.Extensions;
 
 internal static class StartUpExtensions
 {

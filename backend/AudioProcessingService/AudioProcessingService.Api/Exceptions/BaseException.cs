@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace AudioProcessingService.Exceptions;
+namespace AudioProcessingService.Api.Exceptions;
 
 public class BaseException : Exception
 {
