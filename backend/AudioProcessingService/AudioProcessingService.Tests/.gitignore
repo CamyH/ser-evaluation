@@ -1,0 +1,31 @@
+# Visual Studio / Rider
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build / bin / obj
+bin/
+obj/
+out/
+
+# Rider caches
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# NuGet
+*.nupkg
+packages/
+*.snupkg
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# dotnet tools
+*.dotCover
