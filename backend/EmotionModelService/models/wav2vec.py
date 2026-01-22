@@ -1,7 +1,7 @@
 from typing import Dict, Callable
 from numpy import ndarray
 from transformers import PreTrainedModel
-import logging
+from logging import getLogger
 from typing import Tuple
 from torch import Tensor, no_grad, softmax, argmax
 from librosa import load
