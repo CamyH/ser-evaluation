@@ -7,7 +7,7 @@ from torch import Tensor, no_grad, softmax, argmax
 from librosa import load
 from transformers import AutoFeatureExtractor, AutoModelForAudioClassification
 
-logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 
 def load_model(model_id: str) -> Tuple[AutoFeatureExtractor, AutoModelForAudioClassification]:
     """Load the Model & Feature Extractor
