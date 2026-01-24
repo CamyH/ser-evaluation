@@ -1,9 +1,11 @@
 from logging import getLogger
 from typing import Tuple, Dict, Callable
 
-from numpy import argmax, ndarray
-from torch import Tensor, no_grad, softmax, nn
-from transformers import Wav2Vec2ForSequenceClassification, Wav2Vec2FeatureExtractor, PreTrainedModel
+import numpy as np
+from numpy import ndarray
+from numpy._typing import NDArray
+from torch import Tensor, no_grad, nn
+from transformers import Wav2Vec2ForSequenceClassification, Wav2Vec2FeatureExtractor, PreTrainedModel, BatchFeature
 
 logger = getLogger(__name__)
 
@@ -29,7 +31,7 @@ def load_model(model_id: str) -> Tuple[Wav2Vec2FeatureExtractor, Wav2Vec2ForSequ
     logger.info("ModelID: " + model_id)
     return Wav2Vec2FeatureExtractor.from_pretrained(model_id), Wav2Vec2ForSequenceClassification.from_pretrained(model_id)
 
-def process_audio(audio: ndarray[float], processor: Callable[..., dict[str, Tensor]]) -> dict[str, Tensor]:
+def process_audio(audio: NDArray[np.floating], processor: Wav2Vec2FeatureExtractor) -> BatchFeature:
     """ Process Audio
 
     Sample Rate must be 16000 and audio must be mono (single channel)
@@ -44,11 +46,11 @@ def process_audio(audio: ndarray[float], processor: Callable[..., dict[str, Tens
         padding=True
 )
 
-def predict(model: PreTrainedModel, inputs: Dict[str, Tensor]) -> dict:
+def predict(model: PreTrainedModel, inputs: BatchFeature) -> dict:
     """ Run inference on a set of audio features
 
     :param model: The model to run inference on
-    :param features: The features to run inference on
+    :param inputs: The features to run inference on
     :return: The prediction
     """
     with no_grad():

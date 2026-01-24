@@ -1,15 +1,18 @@
-from typing import Dict, Callable
+from typing import Dict
+
+import numpy as np
 from numpy import ndarray
-from transformers import PreTrainedModel
+from numpy._typing import NDArray
+from transformers import PreTrainedModel, BatchFeature, Wav2Vec2FeatureExtractor, Wav2Vec2ForSequenceClassification
 from logging import getLogger
 from typing import Tuple
 from torch import Tensor, no_grad, softmax, argmax
 from librosa import load
-from transformers import AutoFeatureExtractor, AutoModelForAudioClassification
+from transformers import  AutoModelForAudioClassification
 
 logger = getLogger(__name__)
 
-def load_model(model_id: str) -> Tuple[AutoFeatureExtractor, AutoModelForAudioClassification]:
+def load_model(model_id: str) -> Tuple[Wav2Vec2FeatureExtractor, AutoModelForAudioClassification]:
     """Load the Model & Feature Extractor
     Model currently used: "ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition"
     https://huggingface.co/ehcalabres/wav2vec2-lg-xlsr-en-speech-emotion-recognition?utm_source=chatgpt.com
@@ -18,7 +21,7 @@ def load_model(model_id: str) -> Tuple[AutoFeatureExtractor, AutoModelForAudioCl
     :return: The initialised feature extractor and model
     """
     logger.info("ModelID: " + model_id)
-    return AutoFeatureExtractor.from_pretrained(model_id), AutoModelForAudioClassification.from_pretrained(model_id)
+    return Wav2Vec2FeatureExtractor.from_pretrained(model_id), AutoModelForAudioClassification.from_pretrained(model_id)
 
 def load_audio_locally(audio_path: str) -> tuple[ndarray, int | float]:
     """Load audio from a local file
@@ -30,7 +33,7 @@ def load_audio_locally(audio_path: str) -> tuple[ndarray, int | float]:
     logger.info("Loading " + audio_path)
     return load(audio_path, sr=16000, mono=True)
 
-def extract_features(audio: ndarray[float], feature_extractor: Callable[..., dict[str, Tensor]]) -> dict[str, Tensor]:
+def extract_features(audio: NDArray[np.floating], feature_extractor: Wav2Vec2FeatureExtractor) -> BatchFeature:
     """ Extract features from audio
 
     Sample Rate must be 16000 and audio must be mono (single channel)
@@ -45,7 +48,7 @@ def extract_features(audio: ndarray[float], feature_extractor: Callable[..., dic
         padding=True
 )
 
-def predict(model: PreTrainedModel, features: Dict[str, Tensor]) -> str:
+def predict(model: Wav2Vec2ForSequenceClassification, features: BatchFeature) -> str:
     """ Run inference on a set of audio features
 
     :param model: The model to run inference on
