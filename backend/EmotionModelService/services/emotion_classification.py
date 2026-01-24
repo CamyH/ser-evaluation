@@ -1,7 +1,5 @@
 from typing import cast
-
-import numpy as np
-from numpy import ndarray
+from numpy import floating
 from numpy._typing import NDArray
 from transformers import Wav2Vec2ForSequenceClassification
 
@@ -9,7 +7,7 @@ import models.sequence_classification as sequence_classification
 import models.wav2vec as wav2vec
 
 
-def process_audio(model_id: str, audio: NDArray[np.floating]):
+def process_audio(model_id: str, audio: NDArray[floating]):
     """ Service to process audio dependant on given model
 
     :param model_id: Model ID to use

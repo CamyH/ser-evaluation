@@ -1,12 +1,10 @@
-from typing import Dict
-
-import numpy as np
+from numpy import floating
 from numpy import ndarray
 from numpy._typing import NDArray
-from transformers import PreTrainedModel, BatchFeature, Wav2Vec2FeatureExtractor, Wav2Vec2ForSequenceClassification
+from transformers import BatchFeature, Wav2Vec2FeatureExtractor, Wav2Vec2ForSequenceClassification
 from logging import getLogger
 from typing import Tuple
-from torch import Tensor, no_grad, softmax, argmax
+from torch import no_grad, softmax, argmax
 from librosa import load
 from transformers import  AutoModelForAudioClassification
 
@@ -33,7 +31,7 @@ def load_audio_locally(audio_path: str) -> tuple[ndarray, int | float]:
     logger.info("Loading " + audio_path)
     return load(audio_path, sr=16000, mono=True)
 
-def extract_features(audio: NDArray[np.floating], feature_extractor: Wav2Vec2FeatureExtractor) -> BatchFeature:
+def extract_features(audio: NDArray[floating], feature_extractor: Wav2Vec2FeatureExtractor) -> BatchFeature:
     """ Extract features from audio
 
     Sample Rate must be 16000 and audio must be mono (single channel)

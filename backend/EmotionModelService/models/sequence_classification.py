@@ -1,10 +1,8 @@
 from logging import getLogger
-from typing import Tuple, Dict, Callable
-
-import numpy as np
-from numpy import ndarray
+from typing import Tuple
+from numpy import floating
 from numpy._typing import NDArray
-from torch import Tensor, no_grad, nn
+from torch import no_grad, nn
 from transformers import Wav2Vec2ForSequenceClassification, Wav2Vec2FeatureExtractor, PreTrainedModel, BatchFeature
 
 logger = getLogger(__name__)
@@ -31,7 +29,7 @@ def load_model(model_id: str) -> Tuple[Wav2Vec2FeatureExtractor, Wav2Vec2ForSequ
     logger.info("ModelID: " + model_id)
     return Wav2Vec2FeatureExtractor.from_pretrained(model_id), Wav2Vec2ForSequenceClassification.from_pretrained(model_id)
 
-def process_audio(audio: NDArray[np.floating], processor: Wav2Vec2FeatureExtractor) -> BatchFeature:
+def process_audio(audio: NDArray[floating], processor: Wav2Vec2FeatureExtractor) -> BatchFeature:
     """ Process Audio
 
     Sample Rate must be 16000 and audio must be mono (single channel)
