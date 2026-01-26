@@ -6,8 +6,10 @@ type MessagePropType = BaseMessage
 
 export const Message = ({ content }: MessagePropType) => {
     return (
-        <Item variant="outline" size="sm" className={styles.message}>
-            <ItemContent>{content}</ItemContent>
-        </Item>
+        <span className={styles.messageContainer}>
+            <Item variant="outline" size="sm" className={styles.message}>
+                <ItemContent>{content}</ItemContent>
+            </Item>
+        </span>
     )
 }
