@@ -80,6 +80,8 @@
 
   --chat-window-bg: #2E2C2F;
   --chat-text-color: #B5B2C2;
+
+  --default-margin: 20px;
 }
 
 .dark {
