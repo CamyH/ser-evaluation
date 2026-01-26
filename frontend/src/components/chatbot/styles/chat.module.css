@@ -1,0 +1,5 @@
+.chat {
+    cursor: pointer;
+    padding: 0;
+    margin: var(--default-margin);
+}
