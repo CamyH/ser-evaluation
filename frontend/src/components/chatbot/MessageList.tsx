@@ -1,6 +1,6 @@
 import type { Message as MessageType } from '@/components/chatbot/types/message.type.ts'
 import { Message } from '@/components/chatbot/Message.tsx'
-import styles from '@/components/chatbot/styles/messageList.module.css'
+import { List } from '@/components/chatbot/List.tsx'
 
 type MessageListPropType = {
     messages: MessageType[]
@@ -12,10 +12,14 @@ export const MessageList = ({ messages }: MessageListPropType) => {
     }
 
     return (
-        <li className={styles.messageList}>
-            {messages.map((message, index) => {
-                return <Message content={message.content} key={index} />
-            })}
-        </li>
+        <List
+            items={messages}
+            renderItem={(message, index: number) => (
+                <Message
+                    content={message.content}
+                    key={`${message.content}-${index}`}
+                />
+            )}
+        />
     )
 }
