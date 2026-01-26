@@ -7,6 +7,10 @@ type MessageListPropType = {
 }
 
 export const MessageList = ({ messages }: MessageListPropType) => {
+    if (!messages.length) {
+        return <Message content={'No messages to display. Start a new chat'} />
+    }
+
     return (
         <li className={styles.messageList}>
             {messages.map((message, index) => {
