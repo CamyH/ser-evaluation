@@ -5,27 +5,35 @@ import {
     InputGroupButton,
     InputGroupInput,
 } from '@/components/ui/input-group.tsx'
-import { useState } from 'react'
+import { type ChangeEvent, useState } from 'react'
 import { SendHorizontal } from 'lucide-react'
 
-export const MessageInput = () => {
+type MessageInputPropType = {
+    onChange: (userUpload: ChangeEvent<HTMLInputElement>) => void
+}
+
+export const MessageInput = ({ onChange }: MessageInputPropType) => {
     const [isSent, setIsSent] = useState<boolean>(false)
     return (
-        <section className={styles.inputContainer}>
+        <form className={styles.inputContainer}>
             <InputGroup>
-                <InputGroupInput type="text" placeholder="Send a message..." />
+                <InputGroupInput
+                    type="file"
+                    placeholder="Send a message..."
+                    className={styles.input}
+                    onChange={onChange}
+                />
                 <InputGroupAddon align="inline-end">
                     <InputGroupButton
                         aria-label="Submit"
                         type="submit"
                         size="icon-xs"
                         onClick={() => setIsSent(!isSent)}
-                        disabled={isSent}
                     >
                         {<SendHorizontal type="submit" />}
                     </InputGroupButton>
                 </InputGroupAddon>
             </InputGroup>
-        </section>
+        </form>
     )
 }
