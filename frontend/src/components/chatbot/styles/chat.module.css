@@ -2,4 +2,5 @@
     cursor: pointer;
     padding: 0;
     margin: var(--default-margin);
+    color: var(--chat-text-color);
 }
