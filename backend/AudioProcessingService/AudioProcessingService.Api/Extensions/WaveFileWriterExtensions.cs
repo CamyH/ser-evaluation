@@ -6,7 +6,7 @@ public static class WaveFileWriterExtensions
 {
     public static void WriteFileToStream(this MemoryStream memoryStream, ISampleProvider sampleProviderInput)
     {
-        using var writer = new WaveFileWriter(memoryStream, sampleProviderInput.WaveFormat);
+        var writer = new WaveFileWriter(memoryStream, sampleProviderInput.WaveFormat);
         float[] buffer = new float[1024];
         int read;
 
