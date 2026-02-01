@@ -10,6 +10,10 @@ export type ChatState = {
     messages: Record<string, Message[]>
 }
 
-export type ChatDto = {
+export type ChatDto = BaseChat
+
+export type AudioDto = {
     file: File[]
 }
+
+export type ChatListDto = BaseChat[]
