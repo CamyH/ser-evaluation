@@ -7,15 +7,10 @@ namespace AudioProcessingService.Api.Controllers;
 [Route("api/v1/[controller]")]
 public class AudioController(IAudioService audioService, IFileService fileService) : Controller
 {
-    // POST /api/v1/audio/processAudio
+    // POST /api/v1/audio
     [HttpPost]
-    public async Task<IActionResult> ProcessAudio(IFormFile audioInputFile)
+    public async Task<IActionResult> ProcessAudio([FromForm] IFormFile audioInputFile)
     {
-        if (!audioInputFile.ContentType.Contains("audio/wav"))
-        {
-            return BadRequest("Unsupported audio type");
-        }
-        
         var fileMemoryStream = await fileService.SaveFileToMemoryAsync(audioInputFile);
         // Will eventually be sent to the next service API
         var normalizedAudio = audioService.ProcessAudio(fileMemoryStream);
