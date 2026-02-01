@@ -77,6 +77,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --main-bg: #2E2C2F;
+  --chat-window-bg: #2c292d;
+  --chat-text-color: #B5B2C2;
+  --chat-text-color-hover: #888291;
+
+  --default-margin: 20px;
+  --default-border-size: 10px;
 }
 
 .dark {
@@ -120,4 +128,10 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+body {
+  background-color: var(--main-bg);
+  margin: 0;
+  padding: 0;
 }

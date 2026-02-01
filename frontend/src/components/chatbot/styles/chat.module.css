@@ -1,0 +1,11 @@
+.chat {
+    cursor: pointer;
+    padding: 0;
+    margin: var(--default-margin);
+    color: var(--chat-text-color);
+}
+
+.chatList {
+    color: var(--chat-text-color);
+    margin: var(--default-margin);
+}

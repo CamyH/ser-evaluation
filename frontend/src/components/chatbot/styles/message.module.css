@@ -1,0 +1,4 @@
+.messageContainer {
+    margin: var(--default-margin);
+    cursor: default;
+}

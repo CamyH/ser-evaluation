@@ -1,0 +1,18 @@
+.inputContainer {
+    display: flex;
+    margin: var(--default-margin);
+}
+
+.input[type="file"]::file-selector-button {
+    color: var(--chat-text-color);
+}
+
+.input[type="file"]::file-selector-button:hover {
+    color: var(--chat-text-color-hover);
+    cursor: pointer;
+}
+
+
+.sendButton {
+    cursor: pointer;
+}
