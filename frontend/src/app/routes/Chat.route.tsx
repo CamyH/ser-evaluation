@@ -5,12 +5,7 @@ import { ChatList } from '@/components/chatbot/ChatList.tsx'
 export const ChatRoute = () => {
     return (
         <ChatPageLayout>
-            <ChatList
-                chats={[
-                    { chatId: '1', chatName: 'test' },
-                    { chatId: '2', chatName: 'test2' },
-                ]}
-            />
+            <ChatList chats={[]} />
             <ChatWindow chats={[]} messages={[]} />
         </ChatPageLayout>
     )
