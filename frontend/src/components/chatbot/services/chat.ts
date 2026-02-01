@@ -11,7 +11,7 @@ export const chatApi = createApi({
     endpoints: (builder) => ({
         sendAudio: builder.mutation<void, AudioDto>({
             query: ({ file }: AudioDto) => ({
-                url: '/processAudio',
+                url: '/audio',
                 method: 'POST',
                 body: file,
                 headers: { 'Content-Type': 'audio/wav' },
